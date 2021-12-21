@@ -93,15 +93,67 @@ public class GMMConnector {
         return send(a,u);
     }
     
+    public String sendPropOdds(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateOddsForProposition";
+        return send(a,u);
+    }
+    
 //    public void sendStatus(int sportid, int status, int bettypeid, long eventid, int periodid, int level) {
+    public String sendPropStatus(ArrayList<HashMap<String,String>> a) {
+        String u = getUrl() + "api/GMMForTA/UpdateMarketlineStatus";
+        String json = genJSONA(a).toString();
+        return send(json,u);
+    }
+    
     public String sendStatus(ArrayList<HashMap<String,String>> a) {
         String u = getUrl() + "api/GMMForTA/UpdateMarketlineStatus";
         String json = genJSONA(a).toString();
         return send(json,u);
     }
     
+    public String sendPropStatus(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateMarketlineStatusForProposition";
+        return send(a,u);
+    }
+    
+    public String sendPropSelectionStatus(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateSelectionStatusForProposition";
+        return send(a,u);
+    }
+    
     public String sendStatus(String a) {
         String u = getUrl() + "api/GMMForTA/UpdateMarketlineStatus";
+        return send(a,u);
+    }
+    
+    //TODO
+    public String sendResult(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateResultForScoreline";
+        return send(a,u);
+    }
+    
+    public String sendResultDuration(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateResultForDuration";
+        return send(a,u);
+    }
+    
+    public String sendResultProp(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateResultForProposition";
+        return send(a,u);
+    }
+    
+    public String sendSettle(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateSettlementByEvent";
+        return send(a,u);
+    }
+    
+    public String sendSettlePeriod(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateSettlementByPeriod";
+        return send(a,u);
+    }
+    
+    public String sendSettleProp(String a) {
+        String u = getUrl() + "api/GMMForTA/UpdateSettlementForProposition";
         return send(a,u);
     }
     
