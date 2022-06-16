@@ -44,6 +44,7 @@ public class GMMConnector {
             String token = aes.encrypt(user + "|" + enctimestamp, key, iv);
             
             
+            System.out.println("aaaaaaaa");
             HttpPost httppost = new HttpPost(u);
             httppost.setHeader(new BasicHeader("Authorization-UserCode",user));
             httppost.setHeader(new BasicHeader("Authorization-Token",token));
@@ -53,10 +54,14 @@ public class GMMConnector {
             String encjson = aes.encrypt(json, key, iv); 
             httppost.setEntity(new StringEntity(encjson));
             
+            System.out.println("bbbbbbbbb");
             HttpClient httpclient = HttpClients.createDefault();
+            System.out.println("cccccccccc");
             HttpResponse response = httpclient.execute(httppost);
+            System.out.println("ddddddddddd");
             HttpEntity entity = response.getEntity();
             String content = EntityUtils.toString(entity);
+            System.out.println("eeeeeee");
             return response.getStatusLine() + "\n" + content;
 //            System.out.println(response.getStatusLine() + "\n" + content);
         } catch (IOException ex) {
